@@ -10,13 +10,17 @@ A clinical data exploration platform built on the **HL7 FHIR R4** standard. It p
 
 ![Patient List](image1.png)
 
+**Patient Detail** — Individual patient dashboard showing demographic summary cards and tabbed access to Conditions, Vitals, Lab Results, Medications, Encounters, Procedures, Allergies, Immunizations, Reports, and Timeline.
+
+![Patient Detail](image2.png)
+
 **Natural Language Query** — Type a clinical question in plain English; the LLM translates it to FHIR search parameters and executes the query transparently.
 
-![Natural Language Query](image2.png)
+![Natural Language Query](image3.png)
 
 **FHIR Resource Browser** — Select any FHIR R4 resource type, supply JSON search parameters, and inspect raw results or full JSON payloads.
 
-![FHIR Browser](image3.png)
+![FHIR Browser](image4.png)
 
 ---
 
