@@ -14,6 +14,7 @@ Chart.register(LineController, LineElement, PointElement, LinearScale, CategoryS
 
 interface VitalDef {
   code: string;
+  altCodes?: string[];
   label: string;
   unit: string;
   color: string;
@@ -27,7 +28,7 @@ const VITAL_DEFS: VitalDef[] = [
   { code: '39156-5', label: 'BMI', unit: 'kg/m²', color: '#6f42c1' },
   { code: '8310-5', label: 'Temperature', unit: '°C', color: '#fd7e14' },
   { code: '9279-1', label: 'Resp Rate', unit: '/min', color: '#20c997' },
-  { code: '2708-6', label: 'O₂ Sat', unit: '%', color: '#0dcaf0' },
+  { code: '2708-6', altCodes: ['59408-5'], label: 'O₂ Sat', unit: '%', color: '#0dcaf0' },
 ];
 
 @Component({
@@ -179,12 +180,27 @@ export class VitalChartComponent implements OnChanges, AfterViewInit, OnDestroy 
     }
   }
 
+  private matchCodes(def: VitalDef): string[] {
+    return [def.code, ...(def.altCodes ?? [])];
+  }
+
+  private getPoint(obs: Observation, codes: string[]): { date: string; value: number } | null {
+    if (codes.includes(obs.code.coding?.[0]?.code ?? '') && obs.valueQuantity != null) {
+      return { date: obs.effectiveDateTime ?? '', value: obs.valueQuantity.value };
+    }
+    const comp = obs.component?.find(
+      c => codes.includes(c.code.coding?.[0]?.code ?? '') && c.valueQuantity != null
+    );
+    return comp ? { date: obs.effectiveDateTime ?? '', value: comp.valueQuantity!.value } : null;
+  }
+
   private updateAvailableVitals(): void {
     const vitalObs = this.observations.filter(obs =>
       obs.category?.some(cat => cat.coding?.some(c => c.code === 'vital-signs'))
     );
-    const codes = new Set(vitalObs.map(obs => obs.code.coding?.[0]?.code ?? ''));
-    this.availableVitals = VITAL_DEFS.filter(v => codes.has(v.code));
+    this.availableVitals = VITAL_DEFS.filter(v =>
+      vitalObs.some(obs => this.getPoint(obs, this.matchCodes(v)) != null)
+    );
 
     if (this.availableVitals.length > 0 && !this.availableVitals.find(v => v.code === this.selectedCode)) {
       this.selectVital(this.availableVitals[0].code);
@@ -197,18 +213,18 @@ export class VitalChartComponent implements OnChanges, AfterViewInit, OnDestroy 
     const def = VITAL_DEFS.find(v => v.code === this.selectedCode);
     if (!def) return;
 
-    const filtered = this.observations
-      .filter(obs => obs.code.coding?.[0]?.code === this.selectedCode && obs.valueQuantity != null)
-      .sort((a, b) =>
-        new Date(a.effectiveDateTime ?? 0).getTime() - new Date(b.effectiveDateTime ?? 0).getTime()
-      );
+    const codes = this.matchCodes(def);
+    const points = this.observations
+      .map(obs => this.getPoint(obs, codes))
+      .filter((p): p is { date: string; value: number } => p != null)
+      .sort((a, b) => new Date(a.date || 0).getTime() - new Date(b.date || 0).getTime());
 
-    const labels = filtered.map(obs => {
-      const d = new Date(obs.effectiveDateTime ?? '');
+    const labels = points.map(p => {
+      const d = new Date(p.date || '');
       return d.toLocaleDateString('en-US', { month: 'short', year: '2-digit' });
     });
 
-    const data = filtered.map(obs => obs.valueQuantity?.value ?? 0);
+    const data = points.map(p => p.value);
 
     this.latestValue = data.length > 0 ? String(data[data.length - 1]) : '';
 

@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ApiService } from '../services/api.service';
 import { FhirService } from '../services/fhir.service';
 import { Patient, Bundle } from '../interfaces/fhir';
@@ -192,15 +192,32 @@ export class PatientListComponent implements OnInit {
   page = 1;
   loading = false;
   error = '';
+  private searching = false;
 
   constructor(
     private apiService: ApiService,
     private fhirService: FhirService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.loadPatients();
+    this.route.queryParamMap.subscribe(params => {
+      const pageParam = Number(params.get('page'));
+      this.page = pageParam > 0 ? pageParam : 1;
+      if (!this.searching) {
+        this.loadPatients();
+      }
+    });
+  }
+
+  private setPage(page: number): void {
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { page },
+      queryParamsHandling: 'merge',
+    });
   }
 
   loadPatients(): void {
@@ -211,11 +228,12 @@ export class PatientListComponent implements OnInit {
       next: (bundle) => {
         this.patients = bundle.entry?.map(e => e.resource as Patient) || [];
         this.loading = false;
-        this.cdr.markForCheck();
+        this.cdr.detectChanges();
       },
       error: (err) => {
         this.loading = false;
         this.error = err.error?.message || 'Failed to load patients';
+        this.cdr.detectChanges();
       },
     });
   }
@@ -226,7 +244,7 @@ export class PatientListComponent implements OnInit {
       return;
     }
 
-    this.page = 1;
+    this.searching = true;
     this.loading = true;
     this.error = '';
 
@@ -234,29 +252,34 @@ export class PatientListComponent implements OnInit {
       next: (bundle) => {
         this.patients = bundle.entry?.map(e => e.resource as Patient) || [];
         this.loading = false;
+        this.cdr.detectChanges();
       },
       error: (err) => {
         this.loading = false;
         this.error = err.error?.message || 'Search failed';
+        this.cdr.detectChanges();
       },
     });
+
+    this.setPage(1);
   }
 
   clearSearch(): void {
     this.searchTerm = '';
-    this.page = 1;
+    this.searching = false;
+    this.setPage(1);
     this.loadPatients();
   }
 
   nextPage(): void {
-    this.page++;
-    this.loadPatients();
+    this.searching = false;
+    this.setPage(this.page + 1);
   }
 
   previousPage(): void {
     if (this.page > 1) {
-      this.page--;
-      this.loadPatients();
+      this.searching = false;
+      this.setPage(this.page - 1);
     }
   }
 

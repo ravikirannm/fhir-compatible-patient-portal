@@ -63,15 +63,15 @@ import { MedTimelineComponent } from './med-timeline.component';
           </div>
           <div class="summary-card">
             <span class="label">Active Conditions</span>
-            <span class="value">{{ summary?.active_conditions || 0 }}</span>
+            <span class="value">{{ summaryError ? '—' : (summary?.active_conditions ?? 0) }}</span>
           </div>
           <div class="summary-card">
             <span class="label">Current Medications</span>
-            <span class="value">{{ summary?.current_medications || 0 }}</span>
+            <span class="value">{{ summaryError ? '—' : (summary?.current_medications ?? 0) }}</span>
           </div>
           <div class="summary-card">
             <span class="label">Allergies</span>
-            <span class="value">{{ summary?.allergies || 0 }}</span>
+            <span class="value">{{ summaryError ? '—' : (summary?.allergies ?? 0) }}</span>
           </div>
         </div>
 
@@ -432,6 +432,7 @@ import { MedTimelineComponent } from './med-timeline.component';
 export class PatientDetailComponent implements OnInit {
   patient: Patient | null = null;
   summary: PatientSummary | null = null;
+  summaryError = false;
   encounters: Encounter[] = [];
   conditions: Condition[] = [];
   observations: Observation[] = [];
@@ -477,6 +478,7 @@ export class PatientDetailComponent implements OnInit {
   loadPatientData(): void {
     this.loading = true;
     this.error = '';
+    this.summaryError = false;
 
     this.apiService.getPatient(this.patientId).subscribe({
       next: (patient) => { this.patient = patient; },
@@ -489,6 +491,7 @@ export class PatientDetailComponent implements OnInit {
 
     this.apiService.getPatientSummary(this.patientId).subscribe({
       next: (summary) => { this.summary = summary; },
+      error: () => { this.summaryError = true; },
     });
 
     this.apiService.getPatientEncounters(this.patientId).subscribe({
@@ -572,7 +575,7 @@ export class PatientDetailComponent implements OnInit {
   }
 
   getConditionCode(condition: Condition): string {
-    return condition.code.coding?.[0]?.display ?? condition.code.coding?.[0]?.code ?? 'Condition';
+    return condition.code.coding?.[0]?.display ?? condition.code.coding?.[0]?.code ?? condition.code.text ?? 'Condition';
   }
 
   getConditionStatus(condition: Condition): string {
@@ -580,13 +583,14 @@ export class PatientDetailComponent implements OnInit {
   }
 
   getProcedureCode(proc: Procedure): string {
-    return proc.code.coding?.[0]?.display ?? proc.code.coding?.[0]?.code ?? 'Procedure';
+    return proc.code.coding?.[0]?.display ?? proc.code.coding?.[0]?.code ?? proc.code.text ?? 'Procedure';
   }
 
   getMedicationName(med: MedicationRequest): string {
     return (
       med.medicationCodeableConcept?.coding?.[0]?.display ??
       med.medicationCodeableConcept?.coding?.[0]?.code ??
+      med.medicationCodeableConcept?.text ??
       'Medication'
     );
   }
@@ -596,14 +600,14 @@ export class PatientDetailComponent implements OnInit {
   }
 
   getAllergyCode(allergy: AllergyIntolerance): string {
-    return allergy.code.coding?.[0]?.display ?? allergy.code.coding?.[0]?.code ?? 'Allergy';
+    return allergy.code.coding?.[0]?.display ?? allergy.code.coding?.[0]?.code ?? allergy.code.text ?? 'Allergy';
   }
 
   getVaccineCode(imm: Immunization): string {
-    return imm.vaccineCode.coding?.[0]?.display ?? imm.vaccineCode.coding?.[0]?.code ?? 'Vaccine';
+    return imm.vaccineCode.coding?.[0]?.display ?? imm.vaccineCode.coding?.[0]?.code ?? imm.vaccineCode.text ?? 'Vaccine';
   }
 
   getReportCode(report: DiagnosticReport): string {
-    return report.code.coding?.[0]?.display ?? report.code.coding?.[0]?.code ?? 'Report';
+    return report.code.coding?.[0]?.display ?? report.code.coding?.[0]?.code ?? report.code.text ?? 'Report';
   }
 }

@@ -63,6 +63,10 @@ export interface Observation extends FHIRResource {
   valueString?: string;
   referenceRange?: Array<{ low?: { value: number }; high?: { value: number } }>;
   interpretation?: Array<{ coding: Array<{ code: string; display: string }> }>;
+  component?: Array<{
+    code: { coding: Array<{ code: string; display: string }>; text?: string };
+    valueQuantity?: { value: number; unit: string; code: string };
+  }>;
 }
 
 export interface Condition extends FHIRResource {
@@ -127,7 +131,7 @@ export interface MedicationRequest extends FHIRResource {
   identifier?: Array<{ value: string }>;
   status?: string;
   intent?: string;
-  medicationCodeableConcept?: { coding: Array<{ code: string; display: string }> };
+  medicationCodeableConcept?: { coding: Array<{ code: string; display: string }>; text?: string };
   medicationReference?: Reference;
   subject: Reference;
   authoredOn?: string;
@@ -145,7 +149,7 @@ export interface MedicationAdministration extends FHIRResource {
   resourceType: 'MedicationAdministration';
   identifier?: Array<{ value: string }>;
   status?: string;
-  medicationCodeableConcept?: { coding: Array<{ code: string; display: string }> };
+  medicationCodeableConcept?: { coding: Array<{ code: string; display: string }>; text?: string };
   medicationReference?: Reference;
   subject: Reference;
   effectiveDateTime?: string;

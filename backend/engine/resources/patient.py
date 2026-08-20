@@ -29,12 +29,19 @@ def list_patients(page: int = 1, page_size: int = 20):
 
 def search_patients(search_term: str, page: int = 1, page_size: int = 20):
     """Search patients by name or identifier"""
-    params = {"name": search_term, "_count": page_size}
-    
+    tokens = search_term.split()
+
+    if len(tokens) >= 2:
+        # FHIR's "name" param prefix-matches a single name part, so a full
+        # "First Last" string never matches the concatenated name.
+        params = {"given": tokens[0], "family": " ".join(tokens[1:]), "_count": page_size}
+    else:
+        params = {"name:contains": search_term, "_count": page_size}
+
     result = fhir_proxy.search_resources("Patient", params)
     if not result:
         return jsonify({"error": "error", "message": "Failed to search patients"}), 500
-    
+
     return jsonify(result), 200
 
 

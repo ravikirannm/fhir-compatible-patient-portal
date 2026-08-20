@@ -46,3 +46,6 @@ __screenshots__/
 Thumbs.db
 medcpt_db
 __pycache__
+
+# Debug output
+/debug/
