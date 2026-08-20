@@ -395,11 +395,12 @@ def natural_language_query():
             if exec_error:
                 logger.warning(f"Query execution error: {exec_error}")
         
+        entries = results.get("entry", []) if results else []
         response = {
             "translated_query": translated,
-            "results": results.get("entry", []) if results else [],
+            "results": entries,
             "error": None,
-            "total_count": results.get("total", 0) if results else 0
+            "total_count": results.get("total") or len(entries) if results else 0
         }
         
         return jsonify(response), 200

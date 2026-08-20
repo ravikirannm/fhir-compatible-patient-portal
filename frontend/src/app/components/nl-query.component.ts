@@ -56,13 +56,13 @@ import { NLQueryResponse, FHIRResource } from '../interfaces/fhir';
 
         <div *ngFor="let result of lastResponse.results" class="result-card">
           <div class="result-header">
-            <h3>{{ result.resourceType }}/{{ result.id }}</h3>
-            <button (click)="toggleDetails(result.id!)" class="btn btn-sm btn-secondary">
-              {{ expandedIds.has(result.id!) ? 'Hide' : 'Show' }} Details
+            <h3>{{ result.resource.resourceType }}/{{ result.resource.id }}</h3>
+            <button (click)="toggleDetails(result.resource.id!)" class="btn btn-sm btn-secondary">
+              {{ expandedIds.has(result.resource.id!) ? 'Hide' : 'Show' }} Details
             </button>
           </div>
 
-          <div *ngIf="expandedIds.has(result.id!)" class="result-details">
+          <div *ngIf="expandedIds.has(result.resource.id!)" class="result-details">
             <pre>{{ formatJson(result) }}</pre>
           </div>
         </div>

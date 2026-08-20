@@ -1,0 +1,1054 @@
+{
+    "resourceType": "Bundle",
+    "id": "97364f6f-ad64-40eb-b9dd-ba9e77198aa5",
+    "meta": {
+        "lastUpdated": "2026-08-07T06:55:58.559-04:00"
+    },
+    "type": "searchset",
+    "link": [
+        {
+            "relation": "self",
+            "url": "https://hapi.fhir.org/baseR4/Patient/sindhu-syn-000001/$everything"
+        },
+        {
+            "relation": "next",
+            "url": "https://hapi.fhir.org/baseR4?_getpages=97364f6f-ad64-40eb-b9dd-ba9e77198aa5&_getpagesoffset=20&_count=20&_pretty=true&_bundletype=searchset"
+        }
+    ],
+    "entry": [
+        {
+            "fullUrl": "https://hapi.fhir.org/baseR4/Patient/sindhu-syn-000001",
+            "resource": {
+                "resourceType": "Patient",
+                "id": "sindhu-syn-000001",
+                "meta": {
+                    "versionId": "7",
+                    "lastUpdated": "2026-08-05T06:06:33.749-04:00",
+                    "source": "#dAchZlqKO6WCjT7m",
+                    "tag": [
+                        {
+                            "system": "https://sindhu-ecrf.local/tags",
+                            "code": "sindhu-synthetic-40"
+                        }
+                    ]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Jonas API <b>ANDERSSON </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Date of birth</td><td><span>01 January 1979</span></td></tr></tbody></table></div>"
+                },
+                "active": true,
+                "name": [
+                    {
+                        "family": "Andersson",
+                        "given": [
+                            "Jonas",
+                            "API"
+                        ]
+                    }
+                ],
+                "gender": "male",
+                "birthDate": "1979-01-01"
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "https://hapi.fhir.org/baseR4/Encounter/sindhu-syn-000001-enc-00",
+            "resource": {
+                "resourceType": "Encounter",
+                "id": "sindhu-syn-000001-enc-00",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-07-23T02:22:32.935-04:00",
+                    "source": "#r46pI7Ow5CKliSiE",
+                    "tag": [
+                        {
+                            "system": "https://sindhu-ecrf.local/tags",
+                            "code": "sindhu-synthetic-40"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "system": "https://sindhu-ecrf.local/synthetic-patient-id",
+                        "value": "SYN-000001-V00"
+                    }
+                ],
+                "status": "finished",
+                "class": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                    "code": "AMB",
+                    "display": "ambulatory"
+                },
+                "subject": {
+                    "reference": "Patient/sindhu-syn-000001"
+                },
+                "period": {
+                    "start": "2024-01-01",
+                    "end": "2024-01-01"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "https://hapi.fhir.org/baseR4/Observation/sindhu-syn-000001-enc-00-alt",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "sindhu-syn-000001-enc-00-alt",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-07-23T02:22:32.942-04:00",
+                    "source": "#r46pI7Ow5CKliSiE",
+                    "tag": [
+                        {
+                            "system": "https://sindhu-ecrf.local/tags",
+                            "code": "sindhu-synthetic-40"
+                        }
+                    ]
+                },
+                "status": "final",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                                "code": "laboratory"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "1742-6",
+                            "display": "Alanine Aminotransferase"
+                        }
+                    ],
+                    "text": "Alanine Aminotransferase"
+                },
+                "subject": {
+                    "reference": "Patient/sindhu-syn-000001"
+                },
+                "encounter": {
+                    "reference": "Encounter/sindhu-syn-000001-enc-00"
+                },
+                "effectiveDateTime": "2024-01-01",
+                "valueQuantity": {
+                    "value": 18.0,
+                    "unit": "U/L",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "U/L"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "https://hapi.fhir.org/baseR4/Observation/sindhu-syn-000001-enc-00-ast",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "sindhu-syn-000001-enc-00-ast",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-07-23T02:22:32.956-04:00",
+                    "source": "#r46pI7Ow5CKliSiE",
+                    "tag": [
+                        {
+                            "system": "https://sindhu-ecrf.local/tags",
+                            "code": "sindhu-synthetic-40"
+                        }
+                    ]
+                },
+                "status": "final",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                                "code": "laboratory"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "1920-8",
+                            "display": "Aspartate Aminotransferase"
+                        }
+                    ],
+                    "text": "Aspartate Aminotransferase"
+                },
+                "subject": {
+                    "reference": "Patient/sindhu-syn-000001"
+                },
+                "encounter": {
+                    "reference": "Encounter/sindhu-syn-000001-enc-00"
+                },
+                "effectiveDateTime": "2024-01-01",
+                "valueQuantity": {
+                    "value": 19.0,
+                    "unit": "U/L",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "U/L"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "https://hapi.fhir.org/baseR4/Observation/sindhu-syn-000001-enc-00-ggt",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "sindhu-syn-000001-enc-00-ggt",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-07-23T02:22:32.965-04:00",
+                    "source": "#r46pI7Ow5CKliSiE",
+                    "tag": [
+                        {
+                            "system": "https://sindhu-ecrf.local/tags",
+                            "code": "sindhu-synthetic-40"
+                        }
+                    ]
+                },
+                "status": "final",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                                "code": "laboratory"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "2324-2",
+                            "display": "Gamma-Glutamyl Transferase"
+                        }
+                    ],
+                    "text": "Gamma-Glutamyl Transferase"
+                },
+                "subject": {
+                    "reference": "Patient/sindhu-syn-000001"
+                },
+                "encounter": {
+                    "reference": "Encounter/sindhu-syn-000001-enc-00"
+                },
+                "effectiveDateTime": "2024-01-01",
+                "valueQuantity": {
+                    "value": 23.0,
+                    "unit": "U/L",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "U/L"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "https://hapi.fhir.org/baseR4/Observation/sindhu-syn-000001-enc-00-trig",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "sindhu-syn-000001-enc-00-trig",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-07-23T02:22:32.973-04:00",
+                    "source": "#r46pI7Ow5CKliSiE",
+                    "tag": [
+                        {
+                            "system": "https://sindhu-ecrf.local/tags",
+                            "code": "sindhu-synthetic-40"
+                        }
+                    ]
+                },
+                "status": "final",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                                "code": "laboratory"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "2571-8",
+                            "display": "Triglycerides"
+                        }
+                    ],
+                    "text": "Triglycerides"
+                },
+                "subject": {
+                    "reference": "Patient/sindhu-syn-000001"
+                },
+                "encounter": {
+                    "reference": "Encounter/sindhu-syn-000001-enc-00"
+                },
+                "effectiveDateTime": "2024-01-01",
+                "valueQuantity": {
+                    "value": 88.0,
+                    "unit": "mg/dL",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mg/dL"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "https://hapi.fhir.org/baseR4/Observation/sindhu-syn-000001-enc-00-hdl",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "sindhu-syn-000001-enc-00-hdl",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-07-23T02:22:32.985-04:00",
+                    "source": "#r46pI7Ow5CKliSiE",
+                    "tag": [
+                        {
+                            "system": "https://sindhu-ecrf.local/tags",
+                            "code": "sindhu-synthetic-40"
+                        }
+                    ]
+                },
+                "status": "final",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                                "code": "laboratory"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "2085-9",
+                            "display": "HDL Cholesterol"
+                        }
+                    ],
+                    "text": "HDL Cholesterol"
+                },
+                "subject": {
+                    "reference": "Patient/sindhu-syn-000001"
+                },
+                "encounter": {
+                    "reference": "Encounter/sindhu-syn-000001-enc-00"
+                },
+                "effectiveDateTime": "2024-01-01",
+                "valueQuantity": {
+                    "value": 61.0,
+                    "unit": "mg/dL",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mg/dL"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "https://hapi.fhir.org/baseR4/Observation/sindhu-syn-000001-enc-00-ldl",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "sindhu-syn-000001-enc-00-ldl",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-07-23T02:22:32.999-04:00",
+                    "source": "#r46pI7Ow5CKliSiE",
+                    "tag": [
+                        {
+                            "system": "https://sindhu-ecrf.local/tags",
+                            "code": "sindhu-synthetic-40"
+                        }
+                    ]
+                },
+                "status": "final",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                                "code": "laboratory"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "2089-1",
+                            "display": "LDL Cholesterol"
+                        }
+                    ],
+                    "text": "LDL Cholesterol"
+                },
+                "subject": {
+                    "reference": "Patient/sindhu-syn-000001"
+                },
+                "encounter": {
+                    "reference": "Encounter/sindhu-syn-000001-enc-00"
+                },
+                "effectiveDateTime": "2024-01-01",
+                "valueQuantity": {
+                    "value": 105.0,
+                    "unit": "mg/dL",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mg/dL"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "https://hapi.fhir.org/baseR4/Observation/sindhu-syn-000001-enc-00-gluc",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "sindhu-syn-000001-enc-00-gluc",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-07-23T02:22:33.007-04:00",
+                    "source": "#r46pI7Ow5CKliSiE",
+                    "tag": [
+                        {
+                            "system": "https://sindhu-ecrf.local/tags",
+                            "code": "sindhu-synthetic-40"
+                        }
+                    ]
+                },
+                "status": "final",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                                "code": "laboratory"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "2339-0",
+                            "display": "Fasting Glucose"
+                        }
+                    ],
+                    "text": "Fasting Glucose"
+                },
+                "subject": {
+                    "reference": "Patient/sindhu-syn-000001"
+                },
+                "encounter": {
+                    "reference": "Encounter/sindhu-syn-000001-enc-00"
+                },
+                "effectiveDateTime": "2024-01-01",
+                "valueQuantity": {
+                    "value": 96.0,
+                    "unit": "mg/dL",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mg/dL"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "https://hapi.fhir.org/baseR4/Observation/sindhu-syn-000001-enc-00-hba1c",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "sindhu-syn-000001-enc-00-hba1c",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-07-23T02:22:33.014-04:00",
+                    "source": "#r46pI7Ow5CKliSiE",
+                    "tag": [
+                        {
+                            "system": "https://sindhu-ecrf.local/tags",
+                            "code": "sindhu-synthetic-40"
+                        }
+                    ]
+                },
+                "status": "final",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                                "code": "laboratory"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "4548-4",
+                            "display": "HbA1c"
+                        }
+                    ],
+                    "text": "HbA1c"
+                },
+                "subject": {
+                    "reference": "Patient/sindhu-syn-000001"
+                },
+                "encounter": {
+                    "reference": "Encounter/sindhu-syn-000001-enc-00"
+                },
+                "effectiveDateTime": "2024-01-01",
+                "valueQuantity": {
+                    "value": 5.8,
+                    "unit": "%",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "%"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "https://hapi.fhir.org/baseR4/Observation/sindhu-syn-000001-enc-00-insulin",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "sindhu-syn-000001-enc-00-insulin",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-07-23T02:22:33.021-04:00",
+                    "source": "#r46pI7Ow5CKliSiE",
+                    "tag": [
+                        {
+                            "system": "https://sindhu-ecrf.local/tags",
+                            "code": "sindhu-synthetic-40"
+                        }
+                    ]
+                },
+                "status": "final",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                                "code": "laboratory"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "20448-7",
+                            "display": "Insulin"
+                        }
+                    ],
+                    "text": "Insulin"
+                },
+                "subject": {
+                    "reference": "Patient/sindhu-syn-000001"
+                },
+                "encounter": {
+                    "reference": "Encounter/sindhu-syn-000001-enc-00"
+                },
+                "effectiveDateTime": "2024-01-01",
+                "valueQuantity": {
+                    "value": 10.03,
+                    "unit": "uIU/mL",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "uIU/mL"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "https://hapi.fhir.org/baseR4/Observation/sindhu-syn-000001-enc-00-crp",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "sindhu-syn-000001-enc-00-crp",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-07-23T02:22:33.028-04:00",
+                    "source": "#r46pI7Ow5CKliSiE",
+                    "tag": [
+                        {
+                            "system": "https://sindhu-ecrf.local/tags",
+                            "code": "sindhu-synthetic-40"
+                        }
+                    ]
+                },
+                "status": "final",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                                "code": "laboratory"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "1988-5",
+                            "display": "C-Reactive Protein"
+                        }
+                    ],
+                    "text": "C-Reactive Protein"
+                },
+                "subject": {
+                    "reference": "Patient/sindhu-syn-000001"
+                },
+                "encounter": {
+                    "reference": "Encounter/sindhu-syn-000001-enc-00"
+                },
+                "effectiveDateTime": "2024-01-01",
+                "valueQuantity": {
+                    "value": 0.6248472,
+                    "unit": "mg/L",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mg/L"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "https://hapi.fhir.org/baseR4/Observation/sindhu-syn-000001-enc-00-bmi",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "sindhu-syn-000001-enc-00-bmi",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-07-23T02:22:33.039-04:00",
+                    "source": "#r46pI7Ow5CKliSiE",
+                    "tag": [
+                        {
+                            "system": "https://sindhu-ecrf.local/tags",
+                            "code": "sindhu-synthetic-40"
+                        }
+                    ]
+                },
+                "status": "final",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                                "code": "vital-signs"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "39156-5",
+                            "display": "Body Mass Index"
+                        }
+                    ],
+                    "text": "Body Mass Index"
+                },
+                "subject": {
+                    "reference": "Patient/sindhu-syn-000001"
+                },
+                "encounter": {
+                    "reference": "Encounter/sindhu-syn-000001-enc-00"
+                },
+                "effectiveDateTime": "2024-01-01",
+                "valueQuantity": {
+                    "value": 32.779346,
+                    "unit": "kg/m2",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "kg/m2"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "https://hapi.fhir.org/baseR4/Observation/sindhu-syn-000001-enc-00-waist",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "sindhu-syn-000001-enc-00-waist",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-07-23T02:22:33.047-04:00",
+                    "source": "#r46pI7Ow5CKliSiE",
+                    "tag": [
+                        {
+                            "system": "https://sindhu-ecrf.local/tags",
+                            "code": "sindhu-synthetic-40"
+                        }
+                    ]
+                },
+                "status": "final",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                                "code": "vital-signs"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "56115-9",
+                            "display": "Waist Circumference"
+                        }
+                    ],
+                    "text": "Waist Circumference"
+                },
+                "subject": {
+                    "reference": "Patient/sindhu-syn-000001"
+                },
+                "encounter": {
+                    "reference": "Encounter/sindhu-syn-000001-enc-00"
+                },
+                "effectiveDateTime": "2024-01-01",
+                "valueQuantity": {
+                    "value": 124.12599,
+                    "unit": "cm",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "cm"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "https://hapi.fhir.org/baseR4/Observation/sindhu-syn-000001-enc-00-sbp",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "sindhu-syn-000001-enc-00-sbp",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-07-23T02:22:33.053-04:00",
+                    "source": "#r46pI7Ow5CKliSiE",
+                    "tag": [
+                        {
+                            "system": "https://sindhu-ecrf.local/tags",
+                            "code": "sindhu-synthetic-40"
+                        }
+                    ]
+                },
+                "status": "final",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                                "code": "vital-signs"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "8480-6",
+                            "display": "Systolic Blood Pressure"
+                        }
+                    ],
+                    "text": "Systolic Blood Pressure"
+                },
+                "subject": {
+                    "reference": "Patient/sindhu-syn-000001"
+                },
+                "encounter": {
+                    "reference": "Encounter/sindhu-syn-000001-enc-00"
+                },
+                "effectiveDateTime": "2024-01-01",
+                "valueQuantity": {
+                    "value": 144.33417,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mmHg"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "https://hapi.fhir.org/baseR4/Observation/sindhu-syn-000001-enc-00-dbp",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "sindhu-syn-000001-enc-00-dbp",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-07-23T02:22:33.060-04:00",
+                    "source": "#r46pI7Ow5CKliSiE",
+                    "tag": [
+                        {
+                            "system": "https://sindhu-ecrf.local/tags",
+                            "code": "sindhu-synthetic-40"
+                        }
+                    ]
+                },
+                "status": "final",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                                "code": "vital-signs"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "8462-4",
+                            "display": "Diastolic Blood Pressure"
+                        }
+                    ],
+                    "text": "Diastolic Blood Pressure"
+                },
+                "subject": {
+                    "reference": "Patient/sindhu-syn-000001"
+                },
+                "encounter": {
+                    "reference": "Encounter/sindhu-syn-000001-enc-00"
+                },
+                "effectiveDateTime": "2024-01-01",
+                "valueQuantity": {
+                    "value": 74.0,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mmHg"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "https://hapi.fhir.org/baseR4/Observation/sindhu-syn-000001-enc-00-cap",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "sindhu-syn-000001-enc-00-cap",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-07-23T02:22:33.068-04:00",
+                    "source": "#r46pI7Ow5CKliSiE",
+                    "tag": [
+                        {
+                            "system": "https://sindhu-ecrf.local/tags",
+                            "code": "sindhu-synthetic-40"
+                        }
+                    ]
+                },
+                "status": "final",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                                "code": "imaging"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "text": "Controlled Attenuation Parameter (CAP)"
+                },
+                "subject": {
+                    "reference": "Patient/sindhu-syn-000001"
+                },
+                "encounter": {
+                    "reference": "Encounter/sindhu-syn-000001-enc-00"
+                },
+                "effectiveDateTime": "2024-01-01",
+                "valueQuantity": {
+                    "value": 246.0,
+                    "unit": "dB/m"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "https://hapi.fhir.org/baseR4/Observation/sindhu-syn-000001-enc-00-lsm",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "sindhu-syn-000001-enc-00-lsm",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-07-23T02:22:33.076-04:00",
+                    "source": "#r46pI7Ow5CKliSiE",
+                    "tag": [
+                        {
+                            "system": "https://sindhu-ecrf.local/tags",
+                            "code": "sindhu-synthetic-40"
+                        }
+                    ]
+                },
+                "status": "final",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                                "code": "imaging"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "text": "Liver Stiffness Measurement (FibroScan)"
+                },
+                "subject": {
+                    "reference": "Patient/sindhu-syn-000001"
+                },
+                "encounter": {
+                    "reference": "Encounter/sindhu-syn-000001-enc-00"
+                },
+                "effectiveDateTime": "2024-01-01",
+                "valueQuantity": {
+                    "value": 5.4,
+                    "unit": "kPa"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "https://hapi.fhir.org/baseR4/Encounter/sindhu-syn-000001-enc-01",
+            "resource": {
+                "resourceType": "Encounter",
+                "id": "sindhu-syn-000001-enc-01",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-07-23T02:22:33.083-04:00",
+                    "source": "#r46pI7Ow5CKliSiE",
+                    "tag": [
+                        {
+                            "system": "https://sindhu-ecrf.local/tags",
+                            "code": "sindhu-synthetic-40"
+                        }
+                    ]
+                },
+                "identifier": [
+                    {
+                        "system": "https://sindhu-ecrf.local/synthetic-patient-id",
+                        "value": "SYN-000001-V01"
+                    }
+                ],
+                "status": "finished",
+                "class": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                    "code": "AMB",
+                    "display": "ambulatory"
+                },
+                "subject": {
+                    "reference": "Patient/sindhu-syn-000001"
+                },
+                "period": {
+                    "start": "2024-01-31",
+                    "end": "2024-01-31"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        },
+        {
+            "fullUrl": "https://hapi.fhir.org/baseR4/Observation/sindhu-syn-000001-enc-01-alt",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "sindhu-syn-000001-enc-01-alt",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2026-07-23T02:22:33.091-04:00",
+                    "source": "#r46pI7Ow5CKliSiE",
+                    "tag": [
+                        {
+                            "system": "https://sindhu-ecrf.local/tags",
+                            "code": "sindhu-synthetic-40"
+                        }
+                    ]
+                },
+                "status": "final",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                                "code": "laboratory"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "1742-6",
+                            "display": "Alanine Aminotransferase"
+                        }
+                    ],
+                    "text": "Alanine Aminotransferase"
+                },
+                "subject": {
+                    "reference": "Patient/sindhu-syn-000001"
+                },
+                "encounter": {
+                    "reference": "Encounter/sindhu-syn-000001-enc-01"
+                },
+                "effectiveDateTime": "2024-01-31",
+                "valueQuantity": {
+                    "value": 17.97113,
+                    "unit": "U/L",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "U/L"
+                }
+            },
+            "search": {
+                "mode": "match"
+            }
+        }
+    ]
+}

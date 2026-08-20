@@ -247,7 +247,11 @@ export interface NLQueryResponse {
     search_params: Record<string, string>;
     human_summary: string;
   };
-  results: FHIRResource[];
+  results: Array<{
+    fullUrl?: string;
+    resource: FHIRResource;
+    search?: { mode: string };
+  }>;
   error: string | null;
   total_count: number;
 }
